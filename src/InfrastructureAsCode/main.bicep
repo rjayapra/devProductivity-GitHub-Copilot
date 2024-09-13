@@ -15,6 +15,7 @@ var imageName = 'techexcel/dotnetcoreapp'
 var startupCommand = ''
 
 
+
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsName
   location: location
@@ -39,6 +40,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
+
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-11-01-preview' = {
   name: registryName
   location: location
@@ -49,6 +51,7 @@ resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-11-01-pr
     adminUserEnabled: true
   }
 }
+
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
