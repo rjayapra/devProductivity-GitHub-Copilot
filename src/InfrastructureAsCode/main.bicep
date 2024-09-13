@@ -3,6 +3,7 @@ param environment string = 'dev'
 
 @description('Location of services')
 param location string = resourceGroup().location
+param alternatelocation string = 'canadaeast'
 
 var webAppName = '${uniqueString(resourceGroup().id)}-${environment}'
 var appServicePlanName = '${uniqueString(resourceGroup().id)}-mpnp-asp'
@@ -55,7 +56,7 @@ resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-11-01-pr
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
-  location: canadacentral
+  location: alternatelocation
   kind: 'linux'
   
   sku: {
@@ -65,7 +66,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
 
 resource appServiceApp 'Microsoft.Web/sites@2023-12-01' = {
   name: webAppName
-  location: canadacentral
+  location: alternatelocation
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
