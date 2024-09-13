@@ -23,8 +23,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        tools: https://github.com/dsp-testing/codeql-cli-nightlies/releases/download/codeql-bundle-20240307/codeql-bundle-linux64.tar.gz
+      uses: github/codeql-action/init@v3      
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
