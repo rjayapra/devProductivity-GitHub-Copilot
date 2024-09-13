@@ -92,16 +92,13 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'mpp-dev'
+          app-name: 'jxekdzetmnbvwmpnpreg-dev'
           images: jxekdzetmnbvwmpnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
     runs-on: ubuntu-latest
     needs: deploy-to-dev
-    environment:
-      name: test
-      url: https://jxekdzetmnbvwmpnpreg-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -116,16 +113,13 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'mpp-test'
+        app-name: 'jxekdzetmnbvwmpnpreg-test'
         images: jxekdzetmnbvwmpnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
   
     runs-on: ubuntu-latest
     needs: deploy-to-test
-    environment:
-      name: prod
-      url: https://jxekdzetmnbvwmpnpreg-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -140,5 +134,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'mpp-prod'
+        app-name: 'jxekdzetmnbvwmpnpreg-prod'
         images: jxekdzetmnbvwmpnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
