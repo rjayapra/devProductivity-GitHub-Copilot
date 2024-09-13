@@ -55,7 +55,7 @@ resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-11-01-pr
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
-  location: location
+  location: centralus
   kind: 'linux'
   
   sku: {
@@ -65,7 +65,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
 
 resource appServiceApp 'Microsoft.Web/sites@2023-12-01' = {
   name: webAppName
-  location: location
+  location: centralus
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
