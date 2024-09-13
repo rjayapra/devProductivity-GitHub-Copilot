@@ -1,4 +1,4 @@
-name: .NET CI
+name: .NET CD
 
 env:
   registryName: {your_registry_name}.azurecr.io
